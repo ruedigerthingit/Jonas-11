@@ -138,6 +138,9 @@ function initConfetti() {
     }
   }
 
+  // Detect mobile or touch device to throttle particle count for performance
+  const isMobile = window.innerWidth < 768 || 'ontouchstart' in window;
+
   function spawnBurst(x, y, count = 40, angle = null) {
     // Play sound on user interaction
     if (popSound && popSound.paused) {
@@ -145,7 +148,10 @@ function initConfetti() {
       popSound.play().catch(() => { /* Chrome block ignore */ });
     }
     
-    for (let i = 0; i < count; i++) {
+    // Scale particle count by 0.55 on mobile to keep frame rates buttery smooth
+    const adjustedCount = isMobile ? Math.round(count * 0.55) : count;
+    
+    for (let i = 0; i < adjustedCount; i++) {
       particles.push(new ConfettiParticle(x, y, angle));
     }
   }
