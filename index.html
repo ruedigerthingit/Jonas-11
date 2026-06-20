@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einladung zu Jonas' 11,5. Geburtstag! 🎂</title>
+  <!-- Google Fonts for premium rounded typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Confetti overlay canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Sound effect for confetti (optional, triggers on interaction) -->
+  <audio id="pop-sound" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-84.wav" preload="auto"></audio>
+
+  <div class="page-container">
+    
+    <!-- Hero / Title Section -->
+    <header class="hero-card">
+      <div class="avatar-container">
+        <span class="emoji-bounce">🧭</span>
+        <span class="emoji-bounce delay-1">🚴</span>
+        <span class="emoji-bounce delay-2">🔥</span>
+      </div>
+      <h1 class="title" id="invitation-title">EINLADUNG</h1>
+      <p class="subtitle">Jonas feiert seinen <strong>11,5. Geburtstag</strong>!</p>
+    </header>
+
+    <!-- Countdown Section -->
+    <section class="card countdown-card">
+      <h3>⏰ Noch bis zur Abenteuer-Tour:</h3>
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <span id="days">00</span>
+          <label>Tage</label>
+        </div>
+        <div class="countdown-item">
+          <span id="hours">00</span>
+          <label>Std</label>
+        </div>
+        <div class="countdown-item">
+          <span id="minutes">00</span>
+          <label>Min</label>
+        </div>
+        <div class="countdown-item">
+          <span id="seconds">00</span>
+          <label>Sek</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Message -->
+    <section class="card intro-card">
+      <p class="welcome-text">
+        Hallo! Am <strong>18.07.2026</strong> feiere ich meinen 11,5. Geburtstag. Dazu will ich Dich gerne einladen und freue mich sehr darauf, wenn Du kommst! 😊
+      </p>
+    </section>
+
+    <!-- Details Grid -->
+    <div class="details-grid">
+      
+      <!-- Treffpunkt -->
+      <div class="card detail-card card-hover-rotate-left">
+        <div class="card-icon">📍</div>
+        <h2>Treffpunkt</h2>
+        <p><strong>18.07.2026</strong><br>ab <strong>15:00 Uhr</strong></p>
+        <p class="address">
+          Pápa-Straße 27<br>
+          68723 Schwetzingen
+        </p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Papa-Strasse+27,+68723+Schwetzingen" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-secondary">
+          <span>🗺️ In Google Maps zeigen</span>
+        </a>
+      </div>
+
+      <!-- Wichtig -->
+      <div class="card detail-card card-hover-rotate-right highlight-card">
+        <div class="card-icon font-pulse">🚲</div>
+        <h2>Wichtig!</h2>
+        <p class="warning-text">
+          Bring bitte unbedingt Dein <strong>Fahrrad</strong> mit!
+        </p>
+        <p>
+          Wir machen eine spannende <strong>Caching Tour</strong> (Schnitzeljagd) durch den Dossenwald. 🌲🧭
+        </p>
+      </div>
+
+      <!-- Ende -->
+      <div class="card detail-card card-hover-rotate-left">
+        <div class="card-icon">🔥</div>
+        <h2>Ende</h2>
+        <p>
+          Voraussichtlich ab <strong>18:30 Uhr / 19:00 Uhr</strong>.
+        </p>
+        <p>
+          Wir lassen den Tag gemütlich bei <strong>Stockbrot und Würstchen</strong> vom Feuer ausklingen! 🪵🌭
+        </p>
+        <p class="note">
+          *(Wenn alle einverstanden sind, bilden wir eine WhatsApp-Gruppe für letzte Infos).*
+        </p>
+      </div>
+
+    </div>
+
+    <!-- RSVP Section -->
+    <section class="card rsvp-card">
+      <h2>Gib mir Bescheid! 💬</h2>
+      <p>Bitte sag mir (bzw. meiner Mama Nina) Bescheid, ob es bei dir klappt:</p>
+      
+      <div class="rsvp-buttons">
+        <!-- WhatsApp CTA -->
+        <a href="https://wa.me/4917662801551?text=Hallo%20Nina,%20ich%20komme%20gerne%20zu%20Jonas%27%2011.5%20Geburtstag!" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-primary btn-whatsapp">
+          <span>💬 Zusage per WhatsApp</span>
+        </a>
+        
+        <!-- Phone CTA -->
+        <a href="tel:017662801551" class="btn btn-secondary btn-call">
+          <span>📞 Anrufen / SMS: 0176-62801551</span>
+        </a>
+
+        <!-- Add to Calendar -->
+        <button id="add-to-calendar" class="btn btn-calendar">
+          <span>📅 Termin im Kalender speichern</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Wunschliste Section -->
+    <section class="card wishlist-card">
+      <h2>Meine Wunschliste 🎁</h2>
+      <p>Ich habe natürlich eine Wunschliste für Euch vorbereitet, falls Ihr mir etwas schenken möchtet:</p>
+      
+      <div class="wishlist-options">
+        <div class="wishlist-option">
+          <div class="option-icon">📚</div>
+          <p>Ein <strong>Buchgutschein</strong> von der <strong>Buchhandlung Kieser</strong> in Schwetzingen.</p>
+        </div>
+        
+        <div class="wishlist-divider">oder</div>
+
+        <div class="wishlist-option">
+          <div class="option-icon">🛒</div>
+          <p>Meine Online-Wunschliste beim Versandhändler unseres Vertrauens:</p>
+          <a href="https://www.amazon.de" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-amazon">
+            <span>📦 Amazon Wunschzettel öffnen</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <p class="signature">Ich freu mich riesig auf Dich!</p>
+      <h2 class="signature-name" id="jonas-signature">Dein Jonas ❤️</h2>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
